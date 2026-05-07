@@ -20,6 +20,7 @@ select {
   font: inherit;
 }
 
-a {
-  color: inherit;
+img,
+svg {
+  display: block;
 }

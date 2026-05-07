@@ -1,47 +1,61 @@
 :root {
   color-scheme: dark;
+  --mira-black: #020202;
+  --mira-white: #f5f3f0;
+  --mira-border: rgba(255, 255, 255, 0.84);
+  --mira-muted: rgba(255, 255, 255, 0.62);
+  --mira-soft: rgba(255, 255, 255, 0.34);
 }
 
 .mira-shell {
   min-height: 100svh;
-  background: #000;
-  color: #fff;
   display: flex;
   justify-content: center;
-  padding: 32px 20px 48px;
-  font-family: "Montserrat", "Inter", "Helvetica Neue", Arial, sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 34%),
+    linear-gradient(180deg, #050505 0%, #000 50%, #050505 100%);
+  color: #fff;
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+  padding: clamp(14px, 2.8vh, 24px) 20px;
 }
 
-.mira-panel {
-  width: min(100%, 440px);
+.mira-layout {
+  width: min(100%, 760px);
+  min-height: calc(100svh - clamp(28px, 5.6vh, 48px));
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(18px, 2.4vh, 28px);
 }
 
 .mira-hero {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  padding-top: 20px;
+  gap: clamp(14px, 2vh, 24px);
+  padding-top: clamp(8px, 1.2vh, 16px);
   text-align: center;
 }
 
 .mira-logo {
-  width: 112px;
-  height: 112px;
-  border: 1px solid #fff;
+  width: clamp(82px, 14vh, 112px);
+  height: clamp(82px, 14vh, 112px);
   display: grid;
   place-items: center;
+  border: 2px solid #fff;
 }
 
-.mira-logo__grid {
-  width: 42px;
-  height: 42px;
+.mira-logo__inner {
+  width: clamp(30px, 5vh, 40px);
+  height: clamp(30px, 5vh, 40px);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 4px;
+  gap: 3px;
 }
 
 .mira-logo__cell {
@@ -49,139 +63,120 @@
   border-radius: 2px;
 }
 
-.mira-title {
-  margin: 0;
-  font-size: clamp(3rem, 12vw, 4.5rem);
-  font-weight: 800;
-  letter-spacing: 0.3em;
-  text-indent: 0.3em;
-  line-height: 0.9;
+.mira-wordmark {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 1.5vh, 16px);
+  align-items: center;
 }
 
-.mira-tagline {
+.mira-title {
   margin: 0;
-  max-width: 20ch;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 0.92rem;
-  font-weight: 600;
-  line-height: 1.8;
+  font-size: clamp(2.8rem, 8.8vh, 4.35rem);
+  font-weight: 800;
+  line-height: 0.88;
   letter-spacing: 0.32em;
   text-indent: 0.32em;
 }
 
-.mira-card {
-  background: #fff;
-  border: 1px solid #fff;
-  padding: 28px 20px;
+.mira-tagline {
+  margin: 0;
+  max-width: 16ch;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: clamp(0.76rem, 1.65vh, 0.95rem);
+  font-weight: 500;
+  line-height: 1.42;
+
+  text-indent: 0.33em;
 }
 
-.mira-card__content {
-  min-height: 320px;
+.mira-card {
+  width: 100%;
+  background: var(--mira-white);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  color: #000;
+  padding: clamp(20px, 3vh, 32px) clamp(18px, 3vw, 28px);
+}
+
+.mira-card__inner {
+  min-height: clamp(220px, 31vh, 360px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
 .mira-card__title {
   margin: 0;
-  color: #000;
-  font-size: clamp(2rem, 10vw, 3.25rem);
-  font-weight: 800;
-  letter-spacing: -0.06em;
+  font-size: clamp(2rem, 5.5vh, 3.6rem);
+  font-weight: 900;
+  letter-spacing: -0.08em;
   line-height: 0.92;
 }
 
 .mira-card__subtitle {
-  margin: 24px 0 0;
-  max-width: 12ch;
-  color: rgba(0, 0, 0, 0.82);
-  font-size: clamp(1.2rem, 5.5vw, 1.9rem);
+  margin: clamp(14px, 2vh, 22px) 0 0;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: clamp(1.05rem, 3.15vh, 1.82rem);
   font-weight: 500;
-  line-height: 1.18;
+  line-height: 1.14;
 }
 
-.mira-social {
-  margin-top: 34px;
-  width: 100%;
+.mira-provider-list {
+  margin-top: clamp(20px, 3vh, 34px);
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: clamp(14px, 2vw, 22px);
+  flex-wrap: wrap;
 }
 
-.mira-social__button {
-  width: 78px;
-  height: 78px;
-  flex: 0 0 auto;
-  border: 1px solid #000;
-  background: #fff;
-  color: #000;
+.mira-provider {
+  width: clamp(64px, 10.5vh, 88px);
+  height: clamp(64px, 10.5vh, 88px);
+  border: 2px solid rgba(0, 0, 0, 0.72);
+  background: transparent;
+  color: #111;
   display: grid;
   place-items: center;
   cursor: pointer;
   transition:
-    background-color 160ms ease,
-    color 160ms ease,
     transform 160ms ease,
-    opacity 160ms ease;
+    background-color 160ms ease,
+    color 160ms ease;
 }
 
-.mira-social__button:hover,
-.mira-social__button:focus-visible {
-  background: #000;
+.mira-provider:hover,
+.mira-provider:focus-visible {
+  background: #111;
   color: #fff;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
-.mira-social__button:disabled {
-  opacity: 0.35;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.mira-social__button:focus-visible,
-.mira-guest-button:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 4px;
-}
-
-.mira-social__icon {
-  width: 28px;
-  height: 28px;
-}
-
-.mira-card__hint {
-  margin: 20px 0 0;
-  color: rgba(0, 0, 0, 0.58);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.mira-card__hint code {
-  font: inherit;
+.mira-provider__icon {
+  width: clamp(24px, 3.4vh, 30px);
+  height: clamp(24px, 3.4vh, 30px);
 }
 
 .mira-actions {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  align-items: center;
+  gap: clamp(12px, 1.8vh, 20px);
 }
 
 .mira-guest-button {
   width: 100%;
-  min-height: 68px;
-  padding: 18px 20px;
-  border: 1px solid #fff;
+  min-height: clamp(66px, 9vh, 88px);
+  border: 2px solid var(--mira-border);
   background: transparent;
   color: #fff;
   font: inherit;
-  font-size: 1rem;
+  font-size: clamp(1rem, 2.8vh, 1.55rem);
   font-weight: 700;
-  letter-spacing: 0.3em;
-  text-indent: 0.3em;
+  letter-spacing: 0.24em;
+  text-indent: 0.24em;
   cursor: pointer;
   transition:
     background-color 160ms ease,
@@ -194,42 +189,63 @@
   color: #000;
 }
 
+.mira-provider:focus-visible,
+.mira-guest-button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 5px;
+}
+
 .mira-footnote {
   margin: 0;
-  padding: 0 12px;
-  color: rgba(255, 255, 255, 0.62);
   text-align: center;
-  font-size: 0.92rem;
-  line-height: 1.6;
+  color: var(--mira-muted);
+  font-size: clamp(0.86rem, 1.8vh, 1rem);
+  line-height: 1.35;
+}
+
+.mira-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(12px, 1.8vh, 18px);
+  padding-top: clamp(8px, 1vh, 14px);
+}
+
+.mira-footer__line {
+  width: 92px;
+  height: 1px;
+  background: var(--mira-soft);
+}
+
+.mira-footer__text {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: clamp(0.78rem, 1.7vh, 1rem);
+  letter-spacing: 0.14em;
+  text-indent: 0.14em;
+  text-align: center;
 }
 
 @media (min-width: 768px) {
   .mira-shell {
-    padding: 56px 24px 64px;
+    padding: clamp(18px, 2.8vh, 30px) 32px;
   }
 
-  .mira-panel {
-    gap: 40px;
+  .mira-layout {
+    gap: clamp(22px, 3vh, 36px);
   }
 
   .mira-hero {
-    gap: 24px;
+    gap: clamp(18px, 2vh, 28px);
+    padding-top: clamp(8px, 1vh, 14px);
   }
 
   .mira-card {
-    padding: 36px 28px;
+    padding: clamp(24px, 3vh, 38px) clamp(26px, 4vw, 40px);
   }
 
-  .mira-card__content {
-    min-height: 360px;
-  }
-
-  .mira-social {
-    gap: 20px;
-  }
-
-  .mira-social__button {
-    width: 88px;
-    height: 88px;
+  .mira-provider-list {
+    gap: clamp(20px, 3vw, 34px);
   }
 }
